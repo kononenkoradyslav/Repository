@@ -1,4 +1,3 @@
-bin/
-obj/
-.runner/bin/
-.runner/obj/
+/*
+!/results/
+!/.gitignore
