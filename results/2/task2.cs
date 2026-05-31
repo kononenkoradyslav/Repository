@@ -14,7 +14,6 @@ using System;
 
 class Result
 {
-
     /*
      * Complete the 'staircase' function below.
      *
@@ -25,24 +24,18 @@ class Result
     {
         for (int i = 1; i <= n; i++)
         {
-        int spacesCount = n - i;
-        string line = new string(' ', spacesCount) + new string('#', i);
-        Console.WriteLine(line);
+            int spacesCount = n - i;
+            string line = new string(' ', spacesCount) + new string('#', i);
+            Console.WriteLine(line);
         }
     }
-
-
 }
 
 class Solution
 {
     public static void Main(string[] args)
     {
-        string input = Console.ReadLine()!;
-        if (!string.IsNullOrEmpty(input))
-        {
-            int n = Convert.ToInt32(input.Trim());
-            Result.staircase(n);
-        }
+        int n = Convert.ToInt32(Console.ReadLine());
+        Result.staircase(n);
     }
 }
