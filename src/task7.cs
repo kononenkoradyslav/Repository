@@ -49,17 +49,20 @@ class Solution
 {
     public static void Main(string[] args)
     {
-        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+        string linesCountInput = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(linesCountInput)) return;
 
-        int n = Convert.ToInt32(Console.ReadLine().Trim());
+        string scoresInput = Console.ReadLine();
+        while (string.IsNullOrWhiteSpace(scoresInput))
+        {
+            scoresInput = Console.ReadLine();
+            if (scoresInput == null) return;
+        }
 
-        List<int> scores = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(scoresTemp => Convert.ToInt32(scoresTemp)).ToList();
+        List<int> scores = scoresInput.TrimEnd().Split(' ').Select(scoresTemp => Convert.ToInt32(scoresTemp)).ToList();
 
         List<int> result = Result.breakingRecords(scores);
 
-        textWriter.WriteLine(String.Join(" ", result));
-
-        textWriter.Flush();
-        textWriter.Close();
+        Console.WriteLine(String.Join(" ", result));
     }
 }
